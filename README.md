@@ -3,7 +3,7 @@ FEND - Feed RSS Reader Jasmine Testing Suites
 
 Given a web-based application that reads RSS feeds. How to use Jasmine to write a number of tests against a pre-existing application.
 
-![Click on the image to see the demo in YouTube](https://img.youtube.com/vi/E5QiTgOLPKA/0.jpg)](https://www.youtube.com/watch?v=E5QiTgOLPKA)
+[![Click on the image to see the demo in YouTube](https://img.youtube.com/vi/E5QiTgOLPKA/0.jpg)](https://www.youtube.com/watch?v=E5QiTgOLPKA)
 
 ## Why this Project?
 
