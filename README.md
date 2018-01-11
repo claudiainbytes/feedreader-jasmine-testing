@@ -37,7 +37,7 @@ Source Code
 
 ## Demo
 
-If you want to play this project, click here: [Feedreader Jasmine Testing Suites Demo](https://claudiainbytes.github.io/feedreader-jasmine-testing)
+If you want to play this project, click here: [Feedreader Jasmine Testing Suites Demo](https://www.youtube.com/watch?v=E5QiTgOLPKA)
 
 ## Requirements
 
