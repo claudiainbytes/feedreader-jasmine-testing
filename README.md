@@ -1,9 +1,9 @@
-FEND - Feed RSS reader Jasmine Testing Suites
+FEND - Feed RSS Reader Jasmine Testing Suites
 ===========================================
 
 Given a web-based application that reads RSS feeds. How to use Jasmine to write a number of tests against a pre-existing application.
 
-[![Tested Feed RSS](https://img.youtube.com/vi/E5QiTgOLPKA/0.jpg)](https://www.youtube.com/watch?v=E5QiTgOLPKA)
+![Click on the image to see the demo in YouTube](https://img.youtube.com/vi/E5QiTgOLPKA/0.jpg)](https://www.youtube.com/watch?v=E5QiTgOLPKA)
 
 ## Why this Project?
 
@@ -54,6 +54,10 @@ If you want to play this project, click here: [Feedreader Jasmine Testing Suites
 - Callbacks should be used to ensure that feeds are loaded before they are tested.
 - Implement error handling for undefined variables and out-of-bound array access.
 - When complete - all of your tests should pass.
+
+## Testing Results
+
+![alt Testing Results](https://github.com/claudiainbytes/feedreader-jasmine-testing/blob/master/about/screenshot.png)
 
 ## References
 
