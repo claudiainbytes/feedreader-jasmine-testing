@@ -37,7 +37,7 @@ Source Code
 
 ## Demo
 
-If you want to play this project, click here: [Feedreader Jasmine Testing Suites Demo](https://www.youtube.com/watch?v=E5QiTgOLPKA)
+If you want to play this project, click here: [Feedreader Jasmine Testing Suites On GitPages](https://claudiainbytes.github.io/feedreader-jasmine-testing/)
 
 ## Requirements
 
@@ -55,6 +55,10 @@ If you want to play this project, click here: [Feedreader Jasmine Testing Suites
 - Implement error handling for undefined variables and out-of-bound array access.
 - When complete - all of your tests should pass.
 
+## Custom Features
+
+- Write a test that loops through each feed in the `allFeeds` object and ensures it has a valid URL.
+
 ## Testing Results
 
 ![alt Testing Results](https://github.com/claudiainbytes/feedreader-jasmine-testing/blob/master/about/screenshot.png)
@@ -66,6 +70,8 @@ If you want to play this project, click here: [Feedreader Jasmine Testing Suites
 - [Unit Testing with Jasmine: The Very Basics](https://dev.to/aurelkurtula/unit-testing-with-jasmine-the-very-basics-74k)
 - [Jasmine: Understanding the Difference between beforeAll and beforeEach](http://breazeal.com/blog/jasmineBefore.html)
 - [Asynchronous Testing With Jasmine](https://metabroadcast.com/blog/asynchronous-testing-with-jasmine)
+- [How to valid an URL by Mathias Bynens](https://mathiasbynens.be/demo/url-regex)
+- [Diego Perini's URL validator on GIST](https://gist.github.com/dperini/729294)
 
 ## How to install
 

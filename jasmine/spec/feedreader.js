@@ -15,6 +15,27 @@ $(function() {
     */
     describe('RSS Feeds', () => {
 
+        let urlPattern = new RegExp(
+                "^" +
+                "(?:(?:https?|ftp)://)" +
+                "(?:\\S+(?::\\S*)?@)?" +
+                "(?:" +
+                "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
+                "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
+                "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +
+                "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
+                "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" +
+                "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" +
+                "|" +
+                "(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)" +
+                "(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*" +
+                "(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))" +
+                "\\.?" +
+                ")" +
+                "(?::\\d{2,5})?" +
+                "(?:[/?#]\\S*)?" +
+                "$", "i");
+
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
          * empty. Experiment with this before you get started on
@@ -32,24 +53,32 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        allFeeds.forEach((feed) => {
+        for (var feed of allFeeds) {
             it('This RSS feed has a URL defined and the URL is not empty', () => {
                 expect(feed.url).toBeDefined();
                 expect(feed.url).not.toEqual('');
             });
-        });
+        }
 
+        /* TODO: Write a test that loops through each feed
+         * in the allFeeds object and ensures it has a valid URL
+         */
+        for (var feed of allFeeds) {
+            it('This RSS feed has a valid URL', () => {
+                expect(feed.url).toMatch(urlPattern);
+            });
+        }
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-        allFeeds.forEach((feed) => {
+        for (var feed of allFeeds) {
             it('This RSS feed has a name defined and the name is not empty', () => {
                 expect(feed.name).toBeDefined();
                 expect(feed.name).not.toEqual('');
             });
-        });
+        }
 
     });
 
@@ -81,28 +110,15 @@ $(function() {
             expect($body.hasClass('menu-hidden')).toEqual(false);
         });
 
-        afterAll(() => {
-            $menuIconLink.trigger('click');
-        });
-
     });
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', () => {
 
-        let $entry = '.feed .entry',
-            randomFeed;
-
-        //Choose randomly a RSS Feed from all Feeds
+        //Choose a RSS Feed from all Feeds
         beforeEach((done) => {
-            randomFeed = Math.floor(Math.random() * (allFeeds.length - 1)) + 1;
-            loadFeed(randomFeed, done);
-        });
-
-        afterEach((done) => {
-            randomFeed = 0;
-            loadFeed(randomFeed, done);
+            loadFeed(1, done);
         });
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -113,7 +129,7 @@ $(function() {
          */
 
         it('loadFeed is called and completes its work', () => {
-            expect( $entry.length ).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
 
     });
@@ -121,12 +137,11 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
      describe('New Feed Selection', () => {
 
-        let randomFeed,
+        let randomFeed = 1,
             previousFeed = $('.header-title').html(),
             $feedListLink = $('.feed-list a').first();
 
         beforeEach((done) => {
-            randomFeed = Math.floor(Math.random() * (allFeeds.length - 1)) + 1;
             $feedListLink.eq(randomFeed).trigger('click');
             loadFeed(randomFeed, done);
         });
@@ -137,7 +152,7 @@ $(function() {
          */
 
         it('a new feed is loaded by the loadFeed', () => {
-            expect($('.header-title').html()).not.toEqual(previousFeed);
+            expect(allFeeds[1].name).not.toEqual(previousFeed);
         });
 
     });
