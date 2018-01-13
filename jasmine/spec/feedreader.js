@@ -34,8 +34,7 @@ $(function() {
                 ")" +
                 "(?::\\d{2,5})?" +
                 "(?:[/?#]\\S*)?" +
-                "$", "i"),
-            feed;
+                "$", "i");
 
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
