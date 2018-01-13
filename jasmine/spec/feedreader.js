@@ -34,7 +34,8 @@ $(function() {
                 ")" +
                 "(?::\\d{2,5})?" +
                 "(?:[/?#]\\S*)?" +
-                "$", "i");
+                "$", "i"),
+            feed;
 
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
@@ -53,32 +54,32 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        for (var feed of allFeeds) {
+        allFeeds.forEach(function(feed) {
             it('This RSS feed has a URL defined and the URL is not empty', () => {
                 expect(feed.url).toBeDefined();
                 expect(feed.url).not.toEqual('');
             });
-        }
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a valid URL
          */
-        for (var feed of allFeeds) {
+        allFeeds.forEach(function(feed) {
             it('This RSS feed has a valid URL', () => {
                 expect(feed.url).toMatch(urlPattern);
             });
-        }
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-        for (var feed of allFeeds) {
+        allFeeds.forEach(function(feed) {
             it('This RSS feed has a name defined and the name is not empty', () => {
                 expect(feed.name).toBeDefined();
                 expect(feed.name).not.toEqual('');
             });
-        }
+        });
 
     });
 
