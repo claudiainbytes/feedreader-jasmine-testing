@@ -110,6 +110,11 @@ $(function() {
             expect($body.hasClass('menu-hidden')).toEqual(false);
         });
 
+        it('menu changes visibility when the menu icon is clicked again', () => {
+            $menuIconLink.trigger('click');
+            expect($body.hasClass('menu-hidden')).toEqual(true);
+        });
+
     });
 
 
@@ -137,13 +142,18 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
      describe('New Feed Selection', () => {
 
-        let randomFeed = 1,
-            previousFeed = $('.header-title').html(),
-            $feedListLink = $('.feed-list a').first();
+        var previousFeed, currentFeed;
 
         beforeEach((done) => {
-            $feedListLink.eq(randomFeed).trigger('click');
-            loadFeed(randomFeed, done);
+            // That kind of async calls looks like promises
+            // The callback is an anonymous function
+            loadFeed(0, function(){
+                previousFeed = $('.feed .entry h2').first().html();
+                loadFeed(1, function(){
+                    currentFeed = $('.feed .entry h2').first().html();
+                    done();
+                });
+            });
         });
 
         /* TODO: Write a test that ensures when a new feed is loaded
@@ -152,7 +162,7 @@ $(function() {
          */
 
         it('a new feed is loaded by the loadFeed', () => {
-            expect(allFeeds[1].name).not.toEqual(previousFeed);
+            expect(currentFeed).not.toEqual(previousFeed);
         });
 
     });
